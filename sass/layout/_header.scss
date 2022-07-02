@@ -1,0 +1,104 @@
+.header {
+  background-color: $secondary-color;
+  border-bottom: 1px solid #ececec;
+  .container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo,
+.logo--accent {
+  color: $accent-color;
+  font-family: $font-accent, sans-serif;
+  @include font(700, 26px, 1.19, 0.03em);
+}
+
+.logo--accent {
+  color: $title-text-color;
+}
+
+.menu {
+  display: flex;
+  margin-left: 93px;
+}
+
+.menu__item + .menu__item {
+  margin-left: 50px;
+}
+
+.connect {
+  display: flex;
+  margin-left: auto;
+}
+
+.connect__item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.menu__link,
+.connect__link {
+  display: flex;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: $title-text-color;
+  @include font(500, 14px, 1.14, 0.02em);
+  flex-direction: row-reverse;
+  align-items: center;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.connect__link {
+  color: $main-text-color;
+}
+
+.connect__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $main-text-color;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.connect__icon {
+  fill: currentColor;
+  margin-right: 10px;
+}
+
+/*--подчёркивание ссылки текущей страницы--*/
+
+.menu__link {
+  position: relative;
+  &.current {
+    color: $accent-color;
+  }
+}
+
+.current::after {
+  position: absolute;
+  bottom: -1px;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 4px;
+  background: $accent-color;
+  border-radius: 2px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
